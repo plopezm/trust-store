@@ -1,0 +1,24 @@
+truststore:
+  generator:
+    #algorithm: RSA
+    algorithm: ${ALGORITHM}
+    #keylen: 4096
+    keylen: ${KEY_LEN}
+  account:
+    user: ${ADMIN_USR}
+    password: ${ADMIN_PASSWD}
+
+# https://www.thomasvitale.com/https-spring-boot-ssl-certificate/
+server:
+  #port: 8443
+  port: ${SERVICE_PORT}
+  require-ssl: true
+  ssl:
+    #key-store-type: PKCS12
+    key-store-type: ${KEY_STORE_TYPE}
+    #key-store: classpath:keystore.p12
+    key-store: ${KEY_STORE_LOCATION}
+    #key-store-password: password
+    key-store-password: ${KEY_STORE_PASSWD}
+    #server.ssl.key-alias: tomcat
+    server.ssl.key-alias: ${KEY_ALIAS}
